@@ -1,10 +1,8 @@
 package com.infosys.autowired.boot;
 
-import java.util.Arrays;import javax.security.sasl.SaslException;
-
+import java.util.Arrays;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import com.infosys.autowired.components.Country;
 import com.infosys.autowired.components.HardwareShop;
 import com.infosys.autowired.components.Pencil;
@@ -20,13 +18,13 @@ public class AutowiredRunner {
 		System.out.println(Arrays.toString(container.getBeanDefinitionNames()));
 
 		HardwareShop shop = container.getBean(HardwareShop.class);
-		System.out.println(System.lineSeparator()+shop.toString());
-		
+		System.out.println(System.lineSeparator() + shop.toString());
+
 		System.out.println("\n==========================================\n");
-		
+
 		Software software = container.getBean(Software.class);
 		System.out.println(software.toString());
-		
+
 		System.out.println("\n==========================================\n");
 
 		SoftwareEnginner enginner = container.getBean(SoftwareEnginner.class);
@@ -36,9 +34,9 @@ public class AutowiredRunner {
 
 		Pencil pencil = container.getBean(Pencil.class);
 		System.out.println(pencil.toString());
-		
+
 		System.out.println("\n==========================================\n");
-		
+
 		Rubber rubber = container.getBean(Rubber.class);
 		System.out.println(rubber.toString());
 
@@ -46,6 +44,6 @@ public class AutowiredRunner {
 
 		Country country = container.getBean(Country.class);
 		System.out.println(country.toString());
-		
+
 	}
 }
