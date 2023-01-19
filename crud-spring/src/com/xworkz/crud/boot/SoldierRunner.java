@@ -12,8 +12,12 @@ public class SoldierRunner {
 	public static void main(String[] args) {
 		// ApplicationContext container = new AnnotationConfigApplicationContext()
 		SoldierDTO dto = new SoldierDTO("Akshara", 10000000, "HR Representive", "XworkzODC", "RajajiNagar");
+		SoldierDTO dto1 = new SoldierDTO("Spporthi S", 0, "Patre Toliyodu", "Specialist", "Xworkz");
+
 		SoldierServiceImpl service = new SoldierServiceImpl();
 		service.validateAndSave(dto);
+		service.validateAndSave(dto1);
+
 		
 	}
 }

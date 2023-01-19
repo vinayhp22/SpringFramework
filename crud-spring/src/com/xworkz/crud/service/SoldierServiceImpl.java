@@ -23,7 +23,7 @@ public class SoldierServiceImpl implements SoldierService {
 				.validate(dto);
 		
 		if (!violations.isEmpty()) {
-			System.out.println("Errors present....");
+			System.err.println("Errors present....");
 			violations.forEach(v -> System.out.println("Violations are" + v.getMessage()));
 			return false;
 		} else {
