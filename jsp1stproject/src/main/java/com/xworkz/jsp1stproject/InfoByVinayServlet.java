@@ -18,6 +18,7 @@ public class InfoByVinayServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("Running doPost..");
 		String fname = req.getParameter("fname");
 		String lname = req.getParameter("lname");
 		String gender = req.getParameter("gender");
@@ -25,11 +26,13 @@ public class InfoByVinayServlet extends HttpServlet {
 		String address = req.getParameter("address");
 
 		PrintWriter printWriter = resp.getWriter();
-		printWriter.print(fname);
-		printWriter.print(lname);
-		printWriter.print(gender);
+		printWriter.write(fname);
+		printWriter.write(lname);
+		printWriter.write(gender);
 		printWriter.print(reason);
 		printWriter.print(address);
+
+		System.out.println(fname+" "+lname+" "+gender+" "+reason+" "+address);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("DisplayInfo.jsp");
 
