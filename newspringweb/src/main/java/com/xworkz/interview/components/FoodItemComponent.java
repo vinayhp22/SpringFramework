@@ -1,4 +1,4 @@
-package com.xworkz.springweb.component;
+package com.xworkz.interview.components;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;

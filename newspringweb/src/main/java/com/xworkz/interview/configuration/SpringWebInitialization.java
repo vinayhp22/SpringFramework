@@ -1,4 +1,4 @@
-package com.xworkz.springweb.configuration;
+package com.xworkz.interview.configuration;
 
 import java.util.Arrays;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
