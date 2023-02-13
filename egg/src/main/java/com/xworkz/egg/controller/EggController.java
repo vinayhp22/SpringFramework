@@ -9,7 +9,7 @@ import com.xworkz.egg.dto.EggDTO;
 import com.xworkz.egg.service.EggService;
 
 @Controller
-@RequestMapping("/egg")
+@RequestMapping("/")
 public class EggController {
 
 	@Autowired
@@ -19,11 +19,11 @@ public class EggController {
 		System.out.println("Created " + this.getClass().getSimpleName());
 	}
 	
-	@PostMapping
+	@PostMapping("/eggDetails")
 	public String onOrder(EggDTO dto, Model model) {
 		System.out.println("Running onOrder in Controller"+dto);
 		boolean saved = this.eggService.validateAndSave(dto);
 		System.out.println("Saved : "+saved);
-		return "index";
+		return "Egg";
 	}
 }

@@ -16,9 +16,9 @@ public class EggServiceImpl implements EggService {
 	}
 	@Override
 	public boolean validateAndSave(EggDTO dto) {
-		System.out.println("Running validateAndSave in Egg Service");
+		System.out.println("Running validateAndSave in Egg Service"+dto);
 		boolean saved = this.eggRepository.save(dto);
-		System.out.println("saved in service + saved");
+		System.out.println("saved in service" + saved);
 		return false;
 	}
 

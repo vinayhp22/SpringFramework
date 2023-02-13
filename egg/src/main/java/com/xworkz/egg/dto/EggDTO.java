@@ -2,6 +2,8 @@ package com.xworkz.egg.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,9 +14,10 @@ import lombok.Data;
 @Table(name = "egg")
 public class EggDTO {
 
-	@Column(name = "id")
+	@Column(name = "e_id")
 	@Id
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	@Column(name = "e_hotelName")
 	private String hotelName;
 	@Column(name = "e_dishName")
@@ -31,4 +34,5 @@ public class EggDTO {
 	public EggDTO() {
 		System.out.println("Created " + this.getClass().getSimpleName());
 	}
+	
 }
