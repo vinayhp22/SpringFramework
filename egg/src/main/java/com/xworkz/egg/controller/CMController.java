@@ -24,7 +24,7 @@ public class CMController {
 		System.out.println("Created " + this.getClass().getSimpleName());
 	}
 	
-	@PostMapping("cmo")
+	@PostMapping("/cmo")
 	public String onSave(CMDTO cmdto, Model model) {
 		System.out.println("Running onSave in CMController"+cmdto);
 		Set<ConstraintViolation<CMDTO>> constraintViolations = this.cmService.validateAndSave(cmdto);
