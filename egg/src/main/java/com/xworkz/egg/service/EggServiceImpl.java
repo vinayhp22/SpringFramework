@@ -8,6 +8,7 @@ import com.xworkz.egg.repository.EggRepository;
 
 @Service
 public class EggServiceImpl implements EggService {
+	
 	@Autowired
 	private EggRepository eggRepository;
 	

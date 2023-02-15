@@ -8,13 +8,18 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xworkz.egg.dto.CMDTO;
+import com.xworkz.egg.repository.CMRepository;
 
 @Service
 public class CMServiceImpl implements CMService {
 
+	@Autowired
+	private CMRepository cmRepository;
+	
 	public CMServiceImpl() {
 		System.out.println("Created " + this.getClass().getSimpleName());
 	}
@@ -31,6 +36,7 @@ public class CMServiceImpl implements CMService {
 			return constraintViolations;
 		}else {
 			System.out.println("ConstraintViolations not found , data is good");
+			cmRepository.save(cmdto);
 			return Collections.emptySet();
 		}
 		

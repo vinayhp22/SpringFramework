@@ -30,8 +30,8 @@
 	
 	<form action="valentine" method="post">
 	<pre>
-	Name : <input type="text" name="name"/>
-	Valentine Name : <input type="text" name ="valentineName"/>
+	Name : <input type="text" name="name" value="${dto.name}"/>
+	Valentine Name : <input type="text" name ="valentineName" value="${dto.valentineName}"/>
 	Places : <select name="places">
 				<option value="">SELECT</option>
 				<c:forEach items="${places}" var="p">
@@ -41,7 +41,7 @@
 	Gifts :	<select name="gifts">
 				<option value="">SELECT</option>
 				<c:forEach items="${gifts}" var="g">
-					<option value="${g}">${g}</option>
+					<option id="" value="${g}">${g}</option>
 				</c:forEach>
 			</select>
 	<input type="submit" value="Save"/>

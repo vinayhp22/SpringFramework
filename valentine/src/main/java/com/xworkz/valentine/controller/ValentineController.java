@@ -43,7 +43,10 @@ public class ValentineController {
 		System.out.println("Running onValentine post method"+dto);
 		
 		Set<ConstraintViolation<ValentineDTO>> constraintViolations = this.valentineService.validateAndSave(dto);
-		if (constraintViolations.isEmpty()) {
+		if (constraintViolations.isEmpty())
+		
+		
+		{
 			System.out.println("no violations, going save the details");
 			return "ValentineSuccess";
 		}
@@ -51,7 +54,8 @@ public class ValentineController {
 		model.addAttribute("places", places);
 		model.addAttribute("gifts", gifts);
 		model.addAttribute("errors", constraintViolations);
-		System.err.println("Violations in dto : "+dto);
+		model.addAttribute("dto", dto);
+		System.err.println("Violations in onValentine, the dto  : "+dto);
 		
 		return "Valentine";
 	}

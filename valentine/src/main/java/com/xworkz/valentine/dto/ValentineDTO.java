@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Table(name = "valentine")
+@Entity
 public class ValentineDTO {
 	@Column(name = "v_id")
 	@Id
