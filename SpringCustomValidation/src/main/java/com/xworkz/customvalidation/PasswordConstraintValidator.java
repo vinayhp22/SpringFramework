@@ -1,4 +1,4 @@
-package com.javatpoint.customvalidation;
+package com.xworkz.customvalidation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

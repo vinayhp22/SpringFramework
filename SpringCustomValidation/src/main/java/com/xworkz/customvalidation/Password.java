@@ -1,4 +1,4 @@
-package com.javatpoint.customvalidation;
+package com.xworkz.customvalidation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

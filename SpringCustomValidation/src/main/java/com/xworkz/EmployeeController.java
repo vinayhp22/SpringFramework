@@ -1,4 +1,4 @@
-package com.javatpoint;
+package com.xworkz;
 
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
