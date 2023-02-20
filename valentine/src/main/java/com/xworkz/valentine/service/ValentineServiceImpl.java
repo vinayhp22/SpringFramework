@@ -43,6 +43,7 @@ public class ValentineServiceImpl implements ValentineService {
 			entity.setValentineName(dto.getValentineName());
 			entity.setPlaces(dto.getPlaces());
 			entity.setGifts(dto.getGifts());
+			
 			boolean saved = repository.save(entity);
 			System.out.println("Entity saved : "+saved);
 			return Collections.emptySet();

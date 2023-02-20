@@ -18,9 +18,8 @@
 			<a> <img alt=""
 				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
 				width="400" height="100" />
-			</a> <a href="index.jsp">Home</a>
-			
 		</div>
+			</a> <a href="index.jsp">Home</a>
 	</nav>
 	<h1>Welcome to Valentine data saving</h1>
 	
