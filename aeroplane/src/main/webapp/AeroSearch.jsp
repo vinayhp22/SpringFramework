@@ -32,7 +32,7 @@
 	<h1>AeroIndia Search</h1>
 	<h3><span style="color: red;">${message}</span> </h3>
 	<form action="search">
-		Search By Id : <input type="text" name="id"/>
+		Search By Id : <input type="text" name="id" required="required"/>
 		<input type="submit" value="Search"/>
 	</form>
 	<h1>
