@@ -15,7 +15,7 @@
 <body>
 	<nav style="background-color: black;" class="row">
 		<div class="container col">
-			<a href="index.jsp"> <img alt="WHO logo"
+			<a href="index.jsp"> <img alt="x-workz logo"
 				src="https://www.who.int/images/default-source/fallback/header-logos/h-logo-blue.svg?sfvrsn=aaed4f35_18"
 				width="400" height="100" />
 			</a>
@@ -37,25 +37,58 @@
 				List</a><br>
 		</div>
 	</nav>
-	<h1>Welcome to Poison products by Govt of India</h1>
-	<h2>Register your poison product/item to add in govt's poison
-		registry</h2>
+	<h1>Poison Search</h1>
+	<c:forEach items="${messages}" var="m">
+		<span style="color: red;">${m} <br></span>
+	</c:forEach>
+	<span style="color: red;">${message}</span>
+
+	<div class="container">
+		<table style="width: 100%;" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id :</th>
+					<th>Company:</th>
+					<th>Name:</th>
+					<th>Cost:</th>
+					<th>Type:</th>
+					<th>Country:</th>
+					<th>Update</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${list}" var="t">
+					<tr>
+						<td>${t.id}</td>
+						<td>${t.company}</td>
+						<td>${t.name}</td>
+						<td>${t.cost}</td>
+						<td>${t.type}</td>
+						<td>${t.country}</td>
+						<td><a href="update?id=${t.id}">Edit</a></td>
+						<td><a href="delete?id=${t.id}">Delete</a></td>
+					</tr>
+				</c:forEach>
+
+				<tr style="color: red;">
+
+					<td>${dto.id}</td>
+					<td>${dto.company}</td>
+					<td>${dto.name}</td>
+					<td>${dto.cost}</td>
+					<td>${dto.type}</td>
+					<td>${dto.country}</td>
+					<td><h4>Data is Deleted?</h4></td>
+					<td><h4>${dto!=null} <br> ${update}</h4></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<div>
 		<marquee>
-			<a href="PoisonsAct1919.jsp">The Poisons Act, 1919</a>
-			<a>- By Vinay.H.P</a>
+			<img width="20%" alt="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdjMzU2MWIxYjFmMWI1NDhiMmIxYjllODM4OTI4MTAwNzQ5ODJmYiZjdD1n/WTpEQkonGUK5rAhzB6/giphy.gif">
 		</marquee>
 	</div>
-	<div
-		style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC4V7XKSRNzMmXvM7YJNmDb756TteSOaZTHQ&usqp=CAU');">
-		<center>
-			<img alt=""
-				src="https://i.gifer.com/origin/86/86b608134162de20f29addf484c593e2_w200.gif"
-				width="25%"> <img alt=""
-				src="https://freight.cargo.site/w/751/i/af7400ded48757832bbf38c8b95d200f9b6176e5a6176662857374ef1e33e5d1/poison_animated_fryer.gif">
-			<img alt="" src="https://media.tenor.com/mHJP64WTFWEAAAAC/poison.gif">
-		</center>
-	</div>
-
 </body>
 </html>

@@ -1,10 +1,10 @@
-package com.xworkz.aeroplane.configuration;
+package com.xworkz.poison.configuration;
 
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AeroInitilizer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
+public class PoisonInitilizer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -15,7 +15,7 @@ public class AeroInitilizer extends AbstractAnnotationConfigDispatcherServletIni
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		System.out.println("getServletConfigClasses");
-		return new Class[] {AeroConfiguration.class};
+		return new Class[] {PoisonConfiguration.class};
 	}
 
 	@Override

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>X-workz || Poison</title>
+<title>X-workz ||Poison</title>
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -33,29 +33,30 @@
 				style="color: white; font-size: x-large;">SearchByCompany</a><br>
 		</div>
 		<div class="col p-3 my-3 bg-primary">
-			<a href="list" style="color: white; font-size: x-large;">Database
-				List</a><br>
+			<a href="list"
+				style="color: white;  font-size: x-large;">Database List</a><br>
 		</div>
 	</nav>
-	<h1>Welcome to Poison products by Govt of India</h1>
-	<h2>Register your poison product/item to add in govt's poison
-		registry</h2>
-	<div>
+	<h1>Successfully registered to Poison Registry of Govt</h1>
+	<h3>Below is the details for your reference</h3>
+	<h1>
+
+		<span style="">The Searched results are: </span><br> <span
+			style="color: blue;">Company: </span>${dto.getCompany()} <br> <span
+			style="color: blue;">Name: </span>${dto.getName()} <br> <span
+			style="color: blue;">Cost: </span>${dto.getCost()} <br> <span
+			style="color: blue;">Type: </span>${dto.getType()} <br> <span
+			style="color: blue;">Country: </span>${dto.getCountry()}
+
+
+	</h1>
+	
+		<div>
 		<marquee>
-			<a href="PoisonsAct1919.jsp">The Poisons Act, 1919</a>
-			<a>- By Vinay.H.P</a>
+			<img width="20%" alt="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdjMzU2MWIxYjFmMWI1NDhiMmIxYjllODM4OTI4MTAwNzQ5ODJmYiZjdD1n/WTpEQkonGUK5rAhzB6/giphy.gif">
 		</marquee>
 	</div>
-	<div
-		style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC4V7XKSRNzMmXvM7YJNmDb756TteSOaZTHQ&usqp=CAU');">
-		<center>
-			<img alt=""
-				src="https://i.gifer.com/origin/86/86b608134162de20f29addf484c593e2_w200.gif"
-				width="25%"> <img alt=""
-				src="https://freight.cargo.site/w/751/i/af7400ded48757832bbf38c8b95d200f9b6176e5a6176662857374ef1e33e5d1/poison_animated_fryer.gif">
-			<img alt="" src="https://media.tenor.com/mHJP64WTFWEAAAAC/poison.gif">
-		</center>
-	</div>
+
 
 </body>
 </html>

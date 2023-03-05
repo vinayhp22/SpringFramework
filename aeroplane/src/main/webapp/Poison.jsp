@@ -15,7 +15,7 @@
 <body>
 	<nav style="background-color: black;" class="row">
 		<div class="container col">
-			<a href="index.jsp"> <img alt="WHO logo"
+			<a href="index.jsp"> <img alt="x-workz logo"
 				src="https://www.who.int/images/default-source/fallback/header-logos/h-logo-blue.svg?sfvrsn=aaed4f35_18"
 				width="400" height="100" />
 			</a>
@@ -37,25 +37,44 @@
 				List</a><br>
 		</div>
 	</nav>
-	<h1>Welcome to Poison products by Govt of India</h1>
-	<h2>Register your poison product/item to add in govt's poison
-		registry</h2>
+	<h1>Welcome to Welcome to Poison products by Govt of India</h1>
+	<c:forEach items="${errors}" var="e">
+		<span style="color: red;">${e.message} <br></span>
+	</c:forEach>
+	<form action="poisonindia" method="post">
+		<pre>
+			<h4>
+			Company* : <input type="text" name="company" value="${dto.company}" />
+	
+			Product Name* : <input type="text" name="name" value="${dto.name}" />
+	
+			Cost* : <input type="text" name="cost" value="${dto.cost}" />
+			 
+			Type* : <select name="type" required="required" id="mySelect">
+						<option value="">SELECT</option>
+						<c:forEach items="${type}" var="t">
+							<option value="${t}">${t}</option>
+						</c:forEach>
+					</select>
+
+			Country* : <select name="country" required="required" id="mySelect">
+							<option value="">SELECT</option>
+							<c:forEach items="${country}" var="c">
+								<option value="${c}">${c}</option>
+							</c:forEach>
+						</select>
+			
+
+				<input type="submit" value="Register" onclick="myFunction()" />
+	</h4>
+	</pre>
+	</form>
 	<div>
 		<marquee>
-			<a href="PoisonsAct1919.jsp">The Poisons Act, 1919</a>
-			<a>- By Vinay.H.P</a>
+			<img width="20%" alt=""
+				src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdjMzU2MWIxYjFmMWI1NDhiMmIxYjllODM4OTI4MTAwNzQ5ODJmYiZjdD1n/WTpEQkonGUK5rAhzB6/giphy.gif">
 		</marquee>
 	</div>
-	<div
-		style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC4V7XKSRNzMmXvM7YJNmDb756TteSOaZTHQ&usqp=CAU');">
-		<center>
-			<img alt=""
-				src="https://i.gifer.com/origin/86/86b608134162de20f29addf484c593e2_w200.gif"
-				width="25%"> <img alt=""
-				src="https://freight.cargo.site/w/751/i/af7400ded48757832bbf38c8b95d200f9b6176e5a6176662857374ef1e33e5d1/poison_animated_fryer.gif">
-			<img alt="" src="https://media.tenor.com/mHJP64WTFWEAAAAC/poison.gif">
-		</center>
-	</div>
-
+	
 </body>
 </html>
