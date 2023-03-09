@@ -21,8 +21,8 @@
 			</a>
 		</div>
 		<div class="col p-3 my-3 bg-primary">
-			<a href="aeroplane"
-				style="color: white; padding-left: 300px; font-size: x-large;">Aero Show</a>
+			<a href="index.jsp"
+				style="color: white; padding-left: 300px; font-size: x-large;">Home</a>
 		</div>
 		<div class="col p-3 my-3 bg-primary">
 			<a href="AeroSearch.jsp"
@@ -30,13 +30,32 @@
 		</div>
 	</nav>
 	<h1>Welcome to Aero Show 2023, Bengaluru</h1>
-	<h2>Register your product/item to showcase in asia's largest aero show</h2>
-	<div style="background-color: gray;">
-	<center>
-	<img alt="" src="https://media.tenor.com/e-mVwpdYECkAAAAC/air-show-viralhog.gif">
-	<img alt="" src="https://thumbs.gfycat.com/JoyfulDishonestLeafcutterant-size_restricted.gif">
-	<img alt="" src="https://thumbs.gfycat.com/BlushingImmenseGlassfrog.webp">
-	</center> 
-	</div>
+	<c:forEach items="${errors}" var="e">
+		<span style="color: red;">${e.message} <br></span>
+	</c:forEach>
+	<form action="aeroplane" method="post">
+		<pre>
+			Company* : <input type="text" name="company" value="${dto.company}"/>
+	
+			Name* : <input type="text" name="name" value="${dto.name}"/>
+	
+			Cost* : <input type="text" name="cost" value="${dto.cost}"/>
+			
+			Type* : <select name="type" required="required">
+						<option value="">Select</option>
+						<c:forEach items="${type}" var="t">
+							<option value="${t}">${t}</option>
+						</c:forEach>
+					</select>
+
+			Country* : <select name="country" required="required">
+							<option>Select</option>
+							<c:forEach items="${country}" var="c">
+								<option value="${c}">${c}</option>
+							</c:forEach>
+						</select>
+					<input type="submit" value="Register"/>
+		</pre>
+	</form>
 </body>
 </html>

@@ -24,19 +24,25 @@
 			<a href="aeroplane"
 				style="color: white; padding-left: 300px; font-size: x-large;">Aero Show</a>
 		</div>
-		<div class="col p-3 my-3 bg-primary">
-			<a href="AeroSearch.jsp"
-				style="color: white; padding-left: 300px; font-size: x-large;">Aero Search</a>
+			<div class="col p-3 my-3 bg-primary">
+			<a href="index.jsp"
+				style="color: white; padding-left: 300px; font-size: x-large;">Home</a>
 		</div>
 	</nav>
-	<h1>Welcome to Aero Show 2023, Bengaluru</h1>
-	<h2>Register your product/item to showcase in asia's largest aero show</h2>
-	<div style="background-color: gray;">
-	<center>
-	<img alt="" src="https://media.tenor.com/e-mVwpdYECkAAAAC/air-show-viralhog.gif">
-	<img alt="" src="https://thumbs.gfycat.com/JoyfulDishonestLeafcutterant-size_restricted.gif">
-	<img alt="" src="https://thumbs.gfycat.com/BlushingImmenseGlassfrog.webp">
-	</center> 
-	</div>
+	<h1>Successfully registered to Aero Show 2023, Bengaluru</h1>
+	<h3>Below is the details for your reference</h3>
+	<h1>
+	
+	 	Company: ${dto.getCompany()}
+	 	<br>
+		Name: ${dto.getName()} <br>
+		Cost: ${dto.getCost()} <br>
+		Type: ${dto.getType()} <br>
+		Country: ${dto.getCountry()}
+		
+		
+	</h1>
+	
+
 </body>
 </html>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>X-workz || Aero-2023</title>
+<title>X-workz || AeroIndia-2023</title>
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -24,19 +24,24 @@
 			<a href="aeroplane"
 				style="color: white; padding-left: 300px; font-size: x-large;">Aero Show</a>
 		</div>
-		<div class="col p-3 my-3 bg-primary">
-			<a href="AeroSearch.jsp"
-				style="color: white; padding-left: 300px; font-size: x-large;">Aero Search</a>
+			<div class="col p-3 my-3 bg-primary">
+			<a href="index.jsp"
+				style="color: white; padding-left: 300px; font-size: x-large;">Home</a>
 		</div>
 	</nav>
-	<h1>Welcome to Aero Show 2023, Bengaluru</h1>
-	<h2>Register your product/item to showcase in asia's largest aero show</h2>
-	<div style="background-color: gray;">
-	<center>
-	<img alt="" src="https://media.tenor.com/e-mVwpdYECkAAAAC/air-show-viralhog.gif">
-	<img alt="" src="https://thumbs.gfycat.com/JoyfulDishonestLeafcutterant-size_restricted.gif">
-	<img alt="" src="https://thumbs.gfycat.com/BlushingImmenseGlassfrog.webp">
-	</center> 
-	</div>
+	<h1>AeroIndia Search</h1>
+	<h3><span style="color: red;">${message}</span> </h3>
+	<form action="search">
+		Search By Id : <input type="text" name="id" required="required"/>
+		<input type="submit" value="Search"/>
+	</form>
+	<h1>
+		<span style="">The Searched results are: </span><br>
+		<span style="color: blue;">Company: </span>${dto.getCompany()} <br>
+		<span style="color: blue;">Name: </span>${dto.getName()} <br>
+		<span style="color: blue;">Cost: </span>${dto.getCost()} <br>
+		<span style="color: blue;">Type: </span>${dto.getType()} <br>
+		<span style="color: blue;">Country: </span>${dto.getCountry()}
+	</h1>
 </body>
 </html>
