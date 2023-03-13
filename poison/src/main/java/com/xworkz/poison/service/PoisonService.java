@@ -25,9 +25,16 @@ public interface PoisonService {
 		return Collections.emptyList();
 	}
 	
+	default List<PoisonDTO> findByName(String name) {
+		return Collections.emptyList();
+	}
+	
 	default List<PoisonDTO> list(){
 		return Collections.emptyList();
 	}
 	
+	default List<PoisonDTO> searchByNameAndCompany(String company, String name){
+		return Collections.emptyList();
+	}
 	
 }

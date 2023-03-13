@@ -79,7 +79,26 @@ public class PoisonServiceImpl implements PoisonService {
 			System.out.println("Campany name is invalid, which is not present in the database");
 			return Collections.emptyList();
 		}
-
+	}
+	
+	@Override
+	public List<PoisonDTO> findByName(String name) {
+		System.out.println("findByName in service : "+name);
+		List<PoisonEntity> list = this.poisonRepo.findByName(name);
+		List<PoisonDTO> dtos = new ArrayList();
+		if (list != null && !list.isEmpty()) {
+			for (PoisonEntity entity : list) {
+				PoisonDTO dto = new PoisonDTO();
+				BeanUtils.copyProperties(entity, dto);
+				dtos.add(dto);
+			}
+			System.out.println("size of dtos :" + dtos.size());
+			System.out.println("Size of entities : " + list.size());
+			return dtos;
+		} else {
+			System.out.println("Campany name is invalid, which is not present in the database");
+			return Collections.emptyList();
+		}
 	}
 
 	@Override
@@ -116,6 +135,26 @@ public class PoisonServiceImpl implements PoisonService {
 	public List<PoisonDTO> list() {
 		System.out.println("list in service");
 		List<PoisonEntity> list = this.poisonRepo.list();
+		List<PoisonDTO> dtos = new ArrayList();
+		if (list != null && !list.isEmpty()) {
+			for (PoisonEntity entity : list) {
+				PoisonDTO dto = new PoisonDTO();
+				BeanUtils.copyProperties(entity, dto);
+				dtos.add(dto);
+			}
+			System.out.println("size of dtos :" + dtos.size());
+			System.out.println("Size of entities : " + list.size());
+			return dtos;
+		} else {
+			System.out.println("No data found in database");
+			return Collections.emptyList();
+		}
+	}
+	
+	@Override
+	public List<PoisonDTO> searchByNameAndCompany(String company, String name) {
+		System.out.println("searchByNameAndCompany in service");
+		List<PoisonEntity> list = this.poisonRepo.searchByNameAndCompany(company, name);
 		List<PoisonDTO> dtos = new ArrayList();
 		if (list != null && !list.isEmpty()) {
 			for (PoisonEntity entity : list) {

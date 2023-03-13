@@ -36,6 +36,9 @@
 			<a href="list"
 				style="color: white;  font-size: x-large;">Database List</a><br>
 		</div>
+		<div class="col p-3 my-3 bg-primary">
+			<a href="SearchByNameAndCompany.jsp" style="color: white; font-size: x-large;">SearchByNameAndCompany</a><br>
+		</div>
 	</nav>
 	<h1>Successfully registered to Poison Registry of Govt</h1>
 	<h3>Below is the details for your reference</h3>

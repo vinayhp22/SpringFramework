@@ -36,47 +36,50 @@
 			<a href="list" style="color: white; font-size: x-large;">Database
 				List</a><br>
 		</div>
+		<div class="col p-3 my-3 bg-primary">
+			<a href="SearchByNameAndCompany.jsp" style="color: white; font-size: x-large;">SearchByNameAndCompany</a><br>
+		</div>
 	</nav>
 	<h1>Poison Search</h1>
 	<c:forEach items="${messages}" var="m">
 		<span style="color: red;">${m} <br></span>
 	</c:forEach>
 	<span style="color: red;">${message}</span>
-
-	<div class="container">
-		<table style="width: 100%;" class="table table-striped">
-			<thead>
-				<tr>
-					<th>Id :</th>
-					<th>Company:</th>
-					<th>Name:</th>
-					<th>Cost:</th>
-					<th>Type:</th>
-					<th>Country:</th>
-					<th>Update</th>
-					<th>Delete</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${list}" var="t">
+		<div class="container">
+			<table style="width: 100%;" class="table table-striped">
+				<thead>
 					<tr>
-						<td>${t.id}</td>
-						<td>${t.company}</td>
-						<td>${t.name}</td>
-						<td>${t.cost}</td>
-						<td>${t.type}</td>
-						<td>${t.country}</td>
-						<td><a href="update?id=${t.id}" style="color: red;">Edit</a></td>
-						<td><a href="delete?id=${t.id}" style="color: red;">Delete</a></td>
+						<th>Id :</th>
+						<th>Company:</th>
+						<th>Name:</th>
+						<th>Cost:</th>
+						<th>Type:</th>
+						<th>Country:</th>
+						<th>Update</th>
+						<th>Delete</th>
 					</tr>
-				</c:forEach>
+				</thead>
+				<tbody>
+					<c:forEach items="${list}" var="t">
+						<tr>
+							<td>${t.id}</td>
+							<td>${t.company}</td>
+							<td>${t.name}</td>
+							<td>${t.cost}</td>
+							<td>${t.type}</td>
+							<td>${t.country}</td>
+							<td><a href="update?id=${t.id}" style="color: red;">Edit</a></td>
+							<td><a href="delete?id=${t.id}" style="color: red;">Delete</a></td>
+						</tr>
+					</c:forEach>
 
-			</tbody>
-		</table>
-	</div>
+				</tbody>
+			</table>
+		</div>
 	<div>
 		<marquee>
-			<img width="20%" alt="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdjMzU2MWIxYjFmMWI1NDhiMmIxYjllODM4OTI4MTAwNzQ5ODJmYiZjdD1n/WTpEQkonGUK5rAhzB6/giphy.gif">
+			<img width="20%" alt=""
+				src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdjMzU2MWIxYjFmMWI1NDhiMmIxYjllODM4OTI4MTAwNzQ5ODJmYiZjdD1n/WTpEQkonGUK5rAhzB6/giphy.gif">
 		</marquee>
 	</div>
 </body>

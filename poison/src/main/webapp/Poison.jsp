@@ -36,6 +36,9 @@
 			<a href="list" style="color: white; font-size: x-large;">Database
 				List</a><br>
 		</div>
+		<div class="col p-3 my-3 bg-primary">
+			<a href="SearchByNameAndCompany.jsp" style="color: white; font-size: x-large;">SearchByNameAndCompany</a><br>
+		</div>
 	</nav>
 	<h1>Welcome to Welcome to Poison products by Govt of India</h1>
 	<c:forEach items="${errors}" var="e">
@@ -49,22 +52,36 @@
 			Product Name* : <input type="text" name="name" value="${dto.name}" />
 	
 			Cost* : <input type="text" name="cost" value="${dto.cost}" />
-			 
+			<!-- Using javascript - retention of value --> 
 			Type* : <select name="type" required="required" id="mySelect">
 						<option value="">SELECT</option>
 						<c:forEach items="${type}" var="t">
 							<option value="${t}">${t}</option>
 						</c:forEach>
 					</select>
-
+			<!-- Using jsp tags - retention of value -->
 			Country* : <select name="country" required="required" id="mySelect">
 							<option value="">SELECT</option>
 							<c:forEach items="${country}" var="c">
-								<option value="${c}">${c}</option>
+								<option value="${c}" ${c == dto.country ? 'selected' : ''}>${c}</option>
 							</c:forEach>
 						</select>
-			
+		<!-- Using JSP tags - retention of value  	
+		Type* : <select name="type" required="required" id="mySelect">
+					  <option value="">SELECT</option>
+					  <c:forEach items="${type}" var="t">
+					    <c:choose>
+					      <c:when test="${t == dto.type}">
+					        <option value="${t}" selected>${t}</option>
+					      </c:when>
+					      <c:otherwise>
+					        <option value="${t}">${t}</option>
+					      </c:otherwise>
+					    </c:choose>
+					  </c:forEach>
+					</select>
 
+			 -->	
 				<input type="submit" value="Register" onclick="myFunction()" />
 	</h4>
 	</pre>
@@ -75,6 +92,17 @@
 				src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdjMzU2MWIxYjFmMWI1NDhiMmIxYjllODM4OTI4MTAwNzQ5ODJmYiZjdD1n/WTpEQkonGUK5rAhzB6/giphy.gif">
 		</marquee>
 	</div>
-	
+					<script>
+					console.log("${dto.type}");
+					  var savedValue = "${dto.type}"; // replace with your saved value
+					  var selectElement = document.getElementById("mySelect");
+					  var options = selectElement.options;
+					  for (var i = 0; i < options.length; i++) {
+					    if (options[i].value === savedValue) {
+					      options[i].selected = true;
+					      break;
+					    }
+					  }
+					</script>
 </body>
 </html>

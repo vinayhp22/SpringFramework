@@ -71,6 +71,29 @@ public class PoisonRepoImpl implements PoisonRepo {
 		}
 		return Collections.emptyList();
 	}
+	
+	@Override
+	public List<PoisonEntity> findByName(String name) {
+		System.out.println("findByName in repo : " + name);
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findByName");
+			query.setParameter("byname", name);
+			List<PoisonEntity> list = query.getResultList();
+			list.forEach(p -> System.out.println(p));
+			System.out.println("Total list : " + list.size());
+			return list;
+		} catch (PersistenceException e) {
+			System.out.println("PersistenceException");
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			System.out.println("IllegalArgumentException");
+			e.printStackTrace();
+		} finally {
+			manager.close();
+		}
+		return Collections.emptyList();
+	}
 
 	@Override
 	public boolean update(PoisonEntity entity) {
@@ -126,4 +149,22 @@ public class PoisonRepoImpl implements PoisonRepo {
 		return PoisonRepo.super.list();
 	}
 
+	@Override
+	public List<PoisonEntity> searchByNameAndCompany(String company, String name) {
+		System.out.println("searchByNameAndCompany in repo");
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("searchByNameAndCompany");
+			query.setParameter("bycompany", company);
+			query.setParameter("byname", name);
+			List list = query.getResultList();
+			list.forEach(p -> System.out.println(p));
+			return list;
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		} finally {
+			manager.close();
+		}
+		return PoisonRepo.super.searchByNameAndCompany(company, name);
+	}
 }

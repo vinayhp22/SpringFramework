@@ -36,6 +36,9 @@
 			<a href="list" style="color: white; font-size: x-large;">Database
 				List</a><br>
 		</div>
+		<div class="col p-3 my-3 bg-primary">
+			<a href="SearchByNameAndCompany.jsp" style="color: white; font-size: x-large;">SearchByNameAndCompany</a><br>
+		</div>
 	</nav>
 	<h1>Welcome to Welcome to Poison products by Govt of Indiau</h1>
 	<c:forEach items="${errors}" var="e">

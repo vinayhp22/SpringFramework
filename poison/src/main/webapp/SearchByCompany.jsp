@@ -38,6 +38,9 @@
 			<a href="list"
 				style="color: white;  font-size: x-large;">Database List</a><br>
 		</div>
+		<div class="col p-3 my-3 bg-primary">
+			<a href="SearchByNameAndCompany.jsp" style="color: white; font-size: x-large;">SearchByNameAndCompany</a><br>
+		</div>
 	</nav>
 	<h1>Poison Search</h1>
 	<h3>
@@ -45,7 +48,8 @@
 	</h3>
 	<form action="onSearchByCompany">
 		Search By Company Name : <input type="text" name="company"
-			required="required" /> <input type="submit" value="Search" />
+			required="required" value="${list.iterator().next().getCompany()}"/> 
+			<input type="submit" value="Search" />
 	</form>
 	<div class="container">
 		<table style="width: 100%;" class="table table-striped">
@@ -82,5 +86,8 @@
 			<img width="20%" alt="" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdjMzU2MWIxYjFmMWI1NDhiMmIxYjllODM4OTI4MTAwNzQ5ODJmYiZjdD1n/WTpEQkonGUK5rAhzB6/giphy.gif">
 		</marquee>
 	</div>
+	<script>
+		console.log("${list.iterator().next().getCompany()}");
+	</script>
 </body>
 </html>

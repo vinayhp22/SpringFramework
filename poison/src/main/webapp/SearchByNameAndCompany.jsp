@@ -41,17 +41,20 @@
 		</div>
 	</nav>
 	<h1>Poison Search</h1>
-	<h3>
-		<span style="color: red;">${message}</span>
-	</h3>
-	<form action="search">
-		Search By Id : <input type="number" name="id" required="required" value="id"/>
-		<input type="submit" value="Search" />
+	<c:forEach items="${messages}" var="m">
+		<span style="color: red;">${m} <br></span>
+	</c:forEach>
+	<span style="color: red;">${message}</span>
+	<form action="searchByNameAndCompany">
+		Search By Company : <input type="text" name="company"
+			required="required"/> and 
+			Name : <input type="text" name="name"
+			required="required"/>
+			<input type="submit" value="Search" />
 	</form>
-	
 	<div class="container">
 		<table style="width: 100%;" class="table table-striped">
-			<thead style="color: blue;">
+			<thead>
 				<tr>
 					<th>Id :</th>
 					<th>Company:</th>
@@ -64,16 +67,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>${dto.id}</td>
-					<td>${dto.company}</td>
-					<td>${dto.name}</td>
-					<td>${dto.cost}</td>
-					<td>${dto.type}</td>
-					<td>${dto.country}</td>
-					<td><a href="update?id=${dto.id}" style="color: red;">Edit</a></td>
-					<td><a href="delete?id=${dto.id}" style="color: red;">Delete</a></td>
-				</tr>
+				<c:forEach items="${list}" var="t">
+					<tr>
+						<td>${t.id}</td>
+						<td>${t.company}</td>
+						<td>${t.name}</td>
+						<td>${t.cost}</td>
+						<td>${t.type}</td>
+						<td>${t.country}</td>
+						<td><a href="update?id=${t.id}" style="color: red;">Edit</a></td>
+						<td><a href="delete?id=${t.id}" style="color: red;">Delete</a></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

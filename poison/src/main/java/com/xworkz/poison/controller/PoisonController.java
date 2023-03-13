@@ -76,7 +76,7 @@ public class PoisonController {
 	public String onSearchByCompany(@RequestParam String company, Model model) {
 		System.out.println("Running onSearchByCompany" + company);
 		List<PoisonDTO> list = this.poisonService.findByCompany(company);
-		if(list!=null & !list.isEmpty()) {
+		if(list!=null && !list.isEmpty()) {
 			model.addAttribute("list",list);
 			System.out.println("list found in controller - onSearchByCompany");
 		}else {
@@ -108,7 +108,7 @@ public class PoisonController {
 			model.addAttribute("country",country);
 			model.addAttribute("message","Update Successful...");
 			List<PoisonDTO> list = this.poisonService.list();
-			if(list!=null & !list.isEmpty()) {
+			if(list!=null && !list.isEmpty()) {
 				model.addAttribute("list",list);
 			}
 		}
@@ -126,7 +126,7 @@ public class PoisonController {
 		{
 		System.out.println("list in controller ");
 			List<PoisonDTO> list = this.poisonService.list();
-			if(list!=null & !list.isEmpty()) {
+			if(list!=null && !list.isEmpty()) {
 				model.addAttribute("list",list);
 			}else {
 				messages.add("And, no data found in database");
@@ -140,11 +140,32 @@ public class PoisonController {
 	public String onList(Model model) {
 		System.out.println("list in controller");
 		List<PoisonDTO> list = this.poisonService.list();
-		if(list!=null & !list.isEmpty()) {
+		if(list!=null && !list.isEmpty()) {
 			model.addAttribute("list",list);
 		}else {
 			model.addAttribute("message","No data found in database");
 		}
 		return "PoisonList";
+	}
+	
+	@GetMapping("searchByNameAndCompany")
+	public String onSearchByNameAndCompany(@RequestParam String company, @RequestParam String name, Model model) {
+		System.out.println("onSearchByNameAndCompany in controller");
+		List<PoisonDTO> list = this.poisonService.searchByNameAndCompany(company, name);
+		if(list!=null && !list.isEmpty()) {
+			model.addAttribute("list",list);
+		}else {
+			List<PoisonDTO> findByCompany = this.poisonService.findByCompany(company);
+			List<PoisonDTO> findByName = this.poisonService.findByName(name);
+			List<PoisonDTO> findByTwo = new ArrayList<PoisonDTO>();
+			findByTwo.addAll(findByCompany);
+			findByTwo.addAll(findByName);
+			if(findByTwo!=null && !findByTwo.isEmpty()) {
+				model.addAttribute("list",findByTwo);
+			}else {
+				model.addAttribute("message","No data found in database");
+			}
+		}
+		return "SearchByNameAndCompany";
 	}
 }

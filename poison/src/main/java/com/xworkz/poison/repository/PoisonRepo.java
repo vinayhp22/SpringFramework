@@ -20,9 +20,18 @@ public interface PoisonRepo {
 		return Collections.emptyList();
 	}
 	
+	default List<PoisonEntity> findByName(String name) {
+		return Collections.emptyList();
+	}
+	
 	default List<PoisonEntity> list(){
 		return Collections.emptyList();
 	}
 	
+	default List<PoisonEntity> searchByNameAndCompany(String company, String name){
+		return Collections.emptyList();
+	}
+
+	;
 	
 }
