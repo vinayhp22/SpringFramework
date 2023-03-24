@@ -7,7 +7,6 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 
 import com.xworkz.poison.dto.PoisonDTO;
-import com.xworkz.poison.entity.PoisonEntity;
 
 public interface PoisonService {
 

@@ -16,7 +16,7 @@ public class Runner {
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager.createNamedQuery("findByCompany");
 		Query setParameter = query.setParameter("bycompany", "UPL LTD");
-		List list = query.getResultList();
+		List<PoisonEntity> list = query.getResultList();
 		list.forEach(p->System.out.println(p));
 		
 		System.out.println("==========================");
@@ -32,7 +32,7 @@ public class Runner {
 		
 		System.out.println("=========================");
 		Query query2 = manager.createNamedQuery("list");
-		List list2 = query2.getResultList();
+		List<PoisonEntity> list2 = query2.getResultList();
 		list2.forEach(p->System.out.println(p));
 	}
 }

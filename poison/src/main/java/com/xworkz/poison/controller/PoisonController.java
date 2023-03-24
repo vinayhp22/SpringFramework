@@ -12,11 +12,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.xworkz.poison.dto.PoisonDTO;
 import com.xworkz.poison.service.PoisonService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
 @RequestMapping("/")
+@Slf4j
 public class PoisonController {
 
 	@Autowired
@@ -27,12 +31,12 @@ public class PoisonController {
 	private List<String> country = Arrays.asList("India", "USA", "Australia", "UK", "Germany", "Russia", "Japan", "Egypt","Rome","Israel");
 			
 	public PoisonController() {
-		System.out.println("Created " + this.getClass().getSimpleName());
+		log.info("Created " + this.getClass().getSimpleName());
 	}
 	
 	@GetMapping("poisonindia")
 	public String onPoison(Model model) {
-		System.out.println("Running onPoison getmapping");
+		log.info("Running onPoison getmapping");
 		
 		model.addAttribute("type",type);
 		model.addAttribute("country",country);
@@ -42,15 +46,15 @@ public class PoisonController {
 	
 	@PostMapping("poisonindia")
 	public String onPoison(PoisonDTO dto, Model model) {
-		System.out.println("Running onPoison postmapping");
+		log.info("Running onPoison postmapping");
 		
 		Set<ConstraintViolation<PoisonDTO>> violations = this.poisonService.validateAndSave(dto);
 		if(violations.isEmpty()) {
-			System.out.println("No violations in dto, going to save in database" + dto);
+			log.info("No violations in dto, going to save in database" + dto);
 			model.addAttribute("dto",dto);
 			return "PoisonSuccess";
 		}
-		System.err.println("Violations in onPoison, the dto  : "+dto);
+		log.error("Violations in onPoison, the dto  : "+dto);
 		model.addAttribute("type",type);
 		model.addAttribute("country",country);
 		model.addAttribute("dto",dto);
@@ -60,27 +64,27 @@ public class PoisonController {
 	
 	@GetMapping("search")
 	public String onSearch(@RequestParam int id, Model model) {
-		System.out.println("Running on search for id"+id);
+		log.info("Running on search for id"+id);
 		PoisonDTO dto = this.poisonService.findById(id);
 		if(dto!=null) {
 			model.addAttribute("dto",dto);
-			System.out.println("Data found - controller" +dto);
+			log.info("Data found - controller" +dto);
 		}else {
 			model.addAttribute("message", "Data not found");
-			System.out.println("Data not found - controller");
+			log.info("Data not found - controller");
 		}
 		return "PoisonSearch";
 	}
 	
 	@GetMapping("onSearchByCompany")
 	public String onSearchByCompany(@RequestParam String company, Model model) {
-		System.out.println("Running onSearchByCompany" + company);
+		log.info("Running onSearchByCompany" + company);
 		List<PoisonDTO> list = this.poisonService.findByCompany(company);
 		if(list!=null && !list.isEmpty()) {
 			model.addAttribute("list",list);
-			System.out.println("list found in controller - onSearchByCompany");
+			log.info("list found in controller - onSearchByCompany");
 		}else {
-			System.out.println("list not found in controller - onSearchByCompany");
+			log.info("list not found in controller - onSearchByCompany");
 			model.addAttribute("message","Campany name is invalid, which is not present in the database");
 		}
 		return "SearchByCompany";
@@ -88,7 +92,7 @@ public class PoisonController {
 	
 	@GetMapping("update")
 	public String onUpdate(@RequestParam int id, Model model) {
-		System.out.println("onUpdate Getmapping");
+		log.info("onUpdate Getmapping");
 		PoisonDTO dto = this.poisonService.findById(id);
 		model.addAttribute("dto",dto);
 		model.addAttribute("type",type);
@@ -98,7 +102,7 @@ public class PoisonController {
 	
 	@PostMapping("update")
 	public String onUpdate(PoisonDTO dto, Model model) {
-		System.out.println("onUpdate PostMapping"+dto);
+		log.info("onUpdate PostMapping"+dto);
 		Set<ConstraintViolation<PoisonDTO>> violations = this.poisonService.validateAndUpdate(dto);
 		if(!violations.isEmpty()) {
 			model.addAttribute("errors",violations);
@@ -118,13 +122,13 @@ public class PoisonController {
 	
 	@GetMapping("delete")
 	public String onDelete(@RequestParam int id, Model model) {
-		System.out.println("onDelete GetMapping"+id);
+		log.info("onDelete GetMapping"+id);
 		PoisonDTO dto = this.poisonService.delete(id);
 		model.addAttribute("dto",dto);
 		ArrayList<String> messages = new ArrayList<String>();
 		messages.add("Data deleted successfully");
 		{
-		System.out.println("list in controller ");
+		log.info("list in controller ");
 			List<PoisonDTO> list = this.poisonService.list();
 			if(list!=null && !list.isEmpty()) {
 				model.addAttribute("list",list);
@@ -138,7 +142,7 @@ public class PoisonController {
 	
 	@GetMapping("list")
 	public String onList(Model model) {
-		System.out.println("list in controller");
+		log.info("list in controller");
 		List<PoisonDTO> list = this.poisonService.list();
 		if(list!=null && !list.isEmpty()) {
 			model.addAttribute("list",list);
@@ -150,7 +154,7 @@ public class PoisonController {
 	
 	@GetMapping("searchByNameAndCompany")
 	public String onSearchByNameAndCompany(@RequestParam String company, @RequestParam String name, Model model) {
-		System.out.println("onSearchByNameAndCompany in controller");
+		log.info("onSearchByNameAndCompany in controller");
 		List<PoisonDTO> list = this.poisonService.searchByNameAndCompany(company, name);
 		if(list!=null && !list.isEmpty()) {
 			model.addAttribute("list",list);

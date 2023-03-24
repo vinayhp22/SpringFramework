@@ -1,11 +1,14 @@
 package com.xworkz.poison.runner;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class JDBCRunner {
 
 	public static void main(String[] args) {
@@ -24,21 +27,21 @@ public class JDBCRunner {
 //					+ ");";
 //			Statement createStatement = connectionObj.createStatement();
 //			int rowsAffected = createStatement.executeUpdate(query);
-//			System.out.println("rowsAffected"+rowsAffected);
+//			log.info("rowsAffected"+rowsAffected);
 
-			System.out.println("=======================UPDATE===============================");
+			log.info("=======================UPDATE===============================");
 
 			String query1 = "Update poisonindia Set poison_name = 'Blender' where poison_company = 'vinay'";
 			Statement createStatement1 = connectionObj.createStatement();
 			int rowsAffected1 = createStatement1.executeUpdate(query1);
-			System.out.println("rowsAffected" + rowsAffected1);
+			log.info("rowsAffected" + rowsAffected1);
 
-			System.out.println("========================DELETE==============================");
+			log.info("========================DELETE==============================");
 
 			String query2 = "Delete from poisonindia where poison_name = 'VINAY H P'";
 			Statement createStatement2 = connectionObj.createStatement();
 			int rowsAffected2 = createStatement1.executeUpdate(query2);
-			System.out.println("rowsAffected" + rowsAffected2);
+			log.info("rowsAffected" + rowsAffected2);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

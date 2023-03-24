@@ -37,34 +37,28 @@
 				List</a><br>
 		</div>
 		<div class="col p-3 my-3 bg-primary">
-			<a href="SearchByNameAndCompany.jsp" style="color: white; font-size: x-large;">SearchByNameAndCompany</a><br>
+			<a href="SearchByNameAndCompany.jsp"
+				style="color: white; font-size: x-large;">SearchByNameAndCompany</a><br>
 		</div>
 		<div class="col p-3 my-3 bg-primary">
 			<a href="FileUpload.jsp" style="color: white; font-size: x-large;">FileUpload</a><br>
 		</div>
-		<div class="col p-3 my-3 bg-primary">
-			<a href="FileDisplay.jsp" style="color: white; font-size: x-large;">FileDisplay</a><br>
-		</div>
 	</nav>
-	<h1>Welcome to Poison products by Govt of India</h1>
-	<h2>Register your poison product/item to add in govt's poison
-		registry</h2>
 	<div>
 		<marquee>
-			<a href="PoisonsAct1919.jsp">The Poisons Act, 1919</a>
-			<a>- By Vinay.H.P</a>
+			<a href="PoisonsAct1919.jsp">The Poisons Act, 1919</a> <a>- By
+				Vinay.H.P</a>
 		</marquee>
 	</div>
-	<div
-		style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC4V7XKSRNzMmXvM7YJNmDb756TteSOaZTHQ&usqp=CAU');">
-		<center>
-			<img alt=""
-				src="https://i.gifer.com/origin/86/86b608134162de20f29addf484c593e2_w200.gif"
-				width="25%"> <img alt=""
-				src="https://freight.cargo.site/w/751/i/af7400ded48757832bbf38c8b95d200f9b6176e5a6176662857374ef1e33e5d1/poison_animated_fryer.gif">
-			<img alt="" src="https://media.tenor.com/mHJP64WTFWEAAAAC/poison.gif">
-		</center>
-	</div>
+	<h1>Upload file - test</h1>
+	<h2 style="color: red;">${message}</h2>
+	<h2 style="color: green;">${successmessage}</h2>
+
+	<form method="POST" action="${pageContext.request.contextPath}/upload"
+		enctype="multipart/form-data">
+		<input type="file" name="file" /><br /> <input type="submit"
+			value="Submit" />
+	</form>
 
 </body>
 </html>
